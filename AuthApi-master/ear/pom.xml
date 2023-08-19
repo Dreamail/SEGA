@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>jp.co.sega.allnet.auth</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>jp.co.sega.allnet.auth</groupId>
+    <artifactId>ear</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>ALL.Net Auth EAR Project</name>
+    <!-- ================================================================== -->
+    <!-- Build Definitions                                                  -->
+    <!-- ================================================================== -->
+    <build>
+        <finalName>allnet-auth</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <displayName>${project.build.finalName}</displayName>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <!-- auth-api-web -->
+                        <webModule>
+                            <groupId>jp.co.sega.allnet.auth.api</groupId>
+                            <artifactId>auth-api-web</artifactId>
+                            <contextRoot>/auth-api</contextRoot>
+                        </webModule>
+                        <!-- report-api-web -->
+                        <webModule>
+                            <groupId>jp.co.sega.allnet.auth.api</groupId>
+                            <artifactId>report-api-web</artifactId>
+                            <contextRoot>/report-api</contextRoot>
+                        </webModule>
+                        <!-- title-api-web -->
+                        <webModule>
+                            <groupId>jp.co.sega.allnet.auth.api</groupId>
+                            <artifactId>title-api-web</artifactId>
+                            <contextRoot>/title-api</contextRoot>
+                        </webModule>
+                        <!-- admin-api-web -->
+                        <webModule>
+                            <groupId>jp.co.sega.allnet.auth.admin</groupId>
+                            <artifactId>admin-api-web</artifactId>
+                            <contextRoot>/admin-api</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>${project.version.maven.antrun.plugin}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks if="deploy">
+                                <ant antfile="${basedir}/deploy.xml">
+                                    <target name="deploy" />
+                                </ant>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- ================================================================== -->
+    <!-- Build Dependency Definitions                                       -->
+    <!-- ================================================================== -->
+    <dependencies>
+        <!-- ============================================================== -->
+        <!-- Local Dependencies                                             -->
+        <!-- ============================================================== -->
+        <!-- auth-api-web -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.api</groupId>
+            <artifactId>auth-api-web</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+            <type>war</type>
+        </dependency>
+        <!-- report-api-web -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.api</groupId>
+            <artifactId>report-api-web</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+            <type>war</type>
+        </dependency>
+        <!-- title-api-web -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.api</groupId>
+            <artifactId>title-api-web</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+            <type>war</type>
+        </dependency>
+        <!-- admin-api-web -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.admin</groupId>
+            <artifactId>admin-api-web</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,41 @@
+table {
+    border: 1px #E3E3E3 solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+
+table th {
+    padding: 5px;
+    border: #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+    background: #F5F5F5;
+    font-weight: bold;
+    line-height: 120%;
+    text-align: center;
+}
+table td {
+    padding: 5px;
+    border: 1px #E3E3E3 solid;
+    border-width: 0 0 1px 1px;
+}
+
+form dl dt {
+    clear:left;
+    position: relative;
+    float: left;
+    width: 10em;
+    padding:5px 10px 0px 0px;
+    text-align: right;
+}
+
+form dl dd {
+    margin-left: 10em;
+    width: 300px;
+    padding: 5px 5px 5px 0px;
+}
+
+form input[type=text], textarea {
+    border: 1px #E2E2E2 solid;
+    padding: 2px 2px 2px 2px;
+}

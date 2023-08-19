@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+    version="1.0">
+    <!-- <persistence-unit name="AuthPersistenceUnit"
+        transaction-type="JTA"> -->
+    <persistence-unit name="AuthPersistenceUnit"
+        transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- <jta-data-source>java:/DS</jta-data-source> -->
+        <class>jp.co.sega.allnet.auth.common.entity.AppDeliverReport</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AppDeliverReportLog</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AppDeliverReportLogPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthAllowedComp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthAllowedCompPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthAllowedPlace</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthAllowedPlacePK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedBill</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedComp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedGameBill</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedGameBillPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedGameComp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.AuthDeniedGameCompPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Bill</class>
+        <class>jp.co.sega.allnet.auth.common.entity.BillOpenAllowedGame</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Company</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Comp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Country</class>
+        <class>jp.co.sega.allnet.auth.common.entity.CountryDownloadOrder</class>
+        <class>jp.co.sega.allnet.auth.common.entity.CountryDownloadOrderPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.DownloadOrder</class>
+        <class>jp.co.sega.allnet.auth.common.entity.DownloadOrderPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionAuthority</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionAuthSet</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionAuthSetAuth</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionAuthSetAuthPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionRole</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionRoleAuthSet</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionRoleAuthSetPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionRoleAuthority</class>
+        <class>jp.co.sega.allnet.auth.common.entity.FunctionRoleAuthorityPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Game</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameAttribute</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameAttributePK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameCompetence</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameCompetencePK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameGroup</class>
+        <class>jp.co.sega.allnet.auth.common.entity.GameGroupPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Group</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Information</class>
+        <class>jp.co.sega.allnet.auth.common.entity.LcType</class>
+        <class>jp.co.sega.allnet.auth.common.entity.LoaderStateLog</class>
+        <class>jp.co.sega.allnet.auth.common.entity.LoaderStateLogPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Log</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Machine</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MachineDeletionHistory</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MachineDeletionHistoryPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MachineDeletionReason</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MachineDownloadOrder</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MachineStatus</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedBill</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedComp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGame</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGamever</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGameverPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGameBill</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGameBillPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGameComp</class>
+        <class>jp.co.sega.allnet.auth.common.entity.MoveDeniedGameCompPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.OptDeliverReport</class>
+        <class>jp.co.sega.allnet.auth.common.entity.OptDeliverReportLog</class>
+        <class>jp.co.sega.allnet.auth.common.entity.OptDeliverReportLogPK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Place</class>
+        <class>jp.co.sega.allnet.auth.common.entity.PrdCheckGame</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region0</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region0PK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region1</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region1PK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region2</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region2PK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region3</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Region3PK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.Router</class>
+        <class>jp.co.sega.allnet.auth.common.entity.RouterType</class>
+        <class>jp.co.sega.allnet.auth.common.entity.TitleApiAccount</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UnregisteredMachine</class>
+        <class>jp.co.sega.allnet.auth.common.entity.User</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserFunctionRole</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserFunctionRolePK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserGroup</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserPreference</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserPreferencePK</class>
+        <class>jp.co.sega.allnet.auth.common.entity.UserPrefKey</class>
+        <class>jp.co.sega.allnet.auth.common.entity.util.DeliverReportLogView</class>
+        <class>jp.co.sega.allnet.auth.common.entity.util.AppDeliverReportView</class>
+        <class>jp.co.sega.allnet.auth.common.entity.util.LongScalar</class>
+        <class>jp.co.sega.allnet.auth.common.entity.util.OptDeliverReportView</class>
+        <class>jp.co.sega.allnet.auth.common.entity.util.StringKeyValuePair</class>
+        <properties>
+            <property name="hibernate.dialect"
+                value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="none" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="false" />
+        </properties>
+    </persistence-unit>
+</persistence>

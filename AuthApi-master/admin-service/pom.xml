@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2011 SEGA Corporation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>jp.co.sega.allnet.auth</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>jp.co.sega.allnet.auth.admin</groupId>
+    <artifactId>admin-service</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>ALL.Net Auth Admin Module Service Project</name>
+    <!-- ================================================================== -->
+    <!-- Properties -->
+    <!-- ================================================================== -->
+    <properties>
+        <!-- ***** Library Versions ***** -->
+        <!-- org.apache.commons -->
+        <project.version.commons.lang>3.8.1</project.version.commons.lang>
+        <project.version.commons.codec>1.11</project.version.commons.codec>
+        <!-- net.sf.opencsv -->
+        <project.version.com.opencsv>4.3</project.version.com.opencsv>
+    </properties>
+    <!-- ================================================================== -->
+    <!-- Build Dependency Definitions -->
+    <!-- ================================================================== -->
+    <dependencies>
+        <!-- org.springframework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- org.slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${project.version.slf4j}</version>
+        </dependency>
+        <!-- commons-lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${project.version.commons.lang}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${project.version.commons.beanutils}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- javax.persistence -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>${project.version.persistence.api}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- net.sf.opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${project.version.com.opencsv}</version>
+        </dependency>
+        <!-- javax.validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${project.version.validation.api}</version>
+        </dependency>
+        <!-- org.hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${project.version.hibernate.validator}</version>
+        </dependency>
+        <!-- jp.co.sega_am2 -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.am2lib</groupId>
+            <artifactId>am2lib-crypt</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- ============================================================== -->
+        <!-- Local Dependencies -->
+        <!-- ============================================================== -->
+        <!-- entity -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth</groupId>
+            <artifactId>entity</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- util -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth</groupId>
+            <artifactId>util</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- ============================================================== -->
+        <!-- Test Dependencies -->
+        <!-- ============================================================== -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.1-b08</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${project.version.hibernate.entitymanager}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${project.version.slf4j}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${project.version.slf4j}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${project.version.org.postgresql}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth</groupId>
+            <artifactId>test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

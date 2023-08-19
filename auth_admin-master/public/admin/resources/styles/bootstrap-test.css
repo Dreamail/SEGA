@@ -1,0 +1,155 @@
+/*!
+ * The overrides for TEST Environment based on Bootstrap v2.0.4
+ */
+
+body {
+  background-color: #DDEEFF; /* テスト用に色を変更 */
+}
+
+.page-header {
+  border-bottom: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+hr {
+  border-top: 1px solid #87CEEB; /* テスト用に変更 */
+  border-bottom: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.form-actions {
+  border-top: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.table th,
+.table td {
+  border-top: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #87CEEB; /* テスト用に変更 */
+}
+
+.table-bordered {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+  border-left: 0;
+  background-color: #ffffff; /* テスト用の追加 */
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.dropdown-menu {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+}
+
+.well {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+  /*border: 1px solid rgba(0, 0, 0, 0.05);*/
+}
+
+/*
+unused?
+.btn {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+}
+*/
+
+.alert {
+  border: 1px solid #ebdec5; /* テスト用に変更 */
+}
+
+.alert-success {
+  border-color: #c6d9b6; /* テスト用に変更 */
+}
+
+.alert-danger,
+.alert-error {
+  border-color: #dec3c7; /* テスト用に変更 */
+}
+
+.alert-info {
+  border-color: #acd8e1; /* テスト用に変更 */
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.nav-tabs > li > a:hover {
+  border-color: #eeeeee #eeeeee #87CEEB; /* テスト用に変更 */
+}
+
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+  border-bottom-color: #FFFFFF; /* テスト用に変更 */
+}
+
+.nav-tabs.nav-stacked > li > a {
+  border: 1px solid #4169E1; /* テスト用に変更 */
+}
+
+.nav-tabs.nav-stacked > li > a:hover {
+  border-color: #4169E1; /* テスト用に変更 */
+}
+
+.navbar-inner {
+  background-image: -moz-linear-gradient(top, #283877, #000653); /* テスト用に色を変更 */  
+  background-image: -ms-linear-gradient(top, #283877, #000653); /* テスト用に色を変更 */
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#283877), to(#000653)); /* テスト用に色を変更 */
+  background-image: -webkit-linear-gradient(top, #283877, #000653); /* テスト用に色を変更 */
+  background-image: -o-linear-gradient(top, #283877, #000653); /* テスト用に色を変更 */
+  background-image: linear-gradient(top, #283877, #000653); /* テスト用に色を変更 */
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#283877', endColorstr='#000653', GradientType=0); /* テスト用に色を変更 */
+}
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  background-color: #000653; /* テスト用に色を変更 */
+}
+
+.navbar .btn-navbar {
+  background-color: #000653; /* テスト用に変更 */
+  background-image: -ms-linear-gradient(top, #283877, #000653); /* テスト用に変更 */
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#283877), to(#000653) ); /* テスト用に変更 */
+  background-image: -webkit-linear-gradient(top, #283877, #000653); /* テスト用に変更 */
+  background-image: -o-linear-gradient(top, #283877, #000653); /* テスト用に変更 */
+  background-image: linear-gradient(top, #283877, #000653); /* テスト用に変更 */
+  background-image: -moz-linear-gradient(top, #283877, #000653); /* テスト用に変更 */
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#283877', endColorstr='#000653', GradientType=0); /* テスト用に変更 */
+}
+
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:active,
+.navbar .btn-navbar.active,
+.navbar .btn-navbar.disabled,
+.navbar .btn-navbar[disabled] {
+  background-color: #000653; /* テスト用に変更 */
+}
+
+.breadcrumb {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.pagination ul {
+  background-color: #ffffff; /* テスト用の追加 */
+}
+
+.pagination a {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.pager a {
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.accordion-group {
+  background-color: #ffffff; /* テスト用に変更 */
+  border: 1px solid #87CEEB; /* テスト用に変更 */
+}
+
+.accordion-inner {
+  border-top: 1px solid #87CEEB; /* テスト用に変更 */
+}

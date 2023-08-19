@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2011 SEGA Corporation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>jp.co.sega.allnet.auth</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>jp.co.sega.allnet.auth.admin</groupId>
+    <artifactId>admin-ui</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>ALL.Net Auth Admin Module WEB (ALL.Net Admin) Project</name>
+    <!-- ================================================================== -->
+    <!-- Build Dependency Definitions -->
+    <!-- ================================================================== -->
+    <dependencies>
+        <!-- org.springframework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${project.version.springframework}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>2.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- org.hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${project.version.hibernate.entitymanager}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${project.version.hibernate.validator}</version>
+        </dependency>
+        <!-- commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <!-- org.slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${project.version.slf4j}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${project.version.slf4j}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- org.apache.tiles.core -->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-core</artifactId>
+            <version>${project.version.tiles.core}</version>
+        </dependency>
+        <!-- org.apache.tiles.jsp -->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${project.version.tiles.jsp}</version>
+        </dependency>
+        <!-- javax.servlet.jstl -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- javax.servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${project.version.servlet.api}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- javax.servlet.jsp -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>${project.version.jsp.api}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- jp.co.sega.amdt.allnet.DownloadInstructionFileChecker -->
+        <dependency>
+            <groupId>jp.co.sega.amdt.allnet</groupId>
+            <artifactId>DownloadInstructionFileChecker</artifactId>
+            <version>${project.version.DownloadInstructionFileChecker}</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/DownloadInstructionFileChecker.jar</systemPath>
+        </dependency>
+        <!-- ============================================================== -->
+        <!-- Local Dependencies -->
+        <!-- ============================================================== -->
+        <!-- admin-service -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth.admin</groupId>
+            <artifactId>admin-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+    <!-- ================================================================== -->
+    <!-- Build Difinitions -->
+    <!-- ================================================================== -->
+    <build>
+        <finalName>admin-ui</finalName>
+    </build>
+</project>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <!-- jndi lookup for DataSource -->
+    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/pgsql" />
+
+    <!-- Scans the classpath of this application for @Components to deploy 
+        as beans -->
+    <context:component-scan base-package="jp.co.sega.allnet.auth" />
+
+    <!-- security settings -->
+    <security:http>
+        <security:http-basic />
+        <security:logout />
+        <security:intercept-url pattern="/**"
+            access="hasRole('ROLE_ADMIN_REGISTER')" />
+        <security:csrf disabled="true" />
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:password-encoder ref="passwordEncoder" />
+            <security:jdbc-user-service data-source-ref="dataSource"
+                users-by-username-query="SELECT user_id, password, CASE invalided WHEN '1' THEN 0 ELSE 1 END FROM users WHERE user_id = ?"
+                authorities-by-username-query="SELECT DISTINCT u.user_id, 'ROLE_'||a.authority_id FROM user_function_roles u INNER JOIN function_role_authorities a ON u.ROLE_ID = a.ROLE_ID WHERE u.user_id = ?" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.password.MessageDigestPasswordEncoder">
+        <constructor-arg value="SHA-256" />
+    </bean>
+
+    <!-- jpa -->
+    <bean id="entityManagerFactory"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean
+        class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+    <!-- transaction manager -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <bean id="sequenceTx"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="transactionTemplate"
+        class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="sequenceTx" />
+        <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED" />
+    </bean>
+
+    <tx:annotation-driven />
+
+    <!-- resource -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="AdminRegisterMessages" />
+    </bean>
+    
+    <bean id="messageSourceAccessor" class="org.springframework.context.support.MessageSourceAccessor">
+        <constructor-arg>
+            <ref bean="messageSource" />
+        </constructor-arg>
+    </bean>
+    
+    <!-- log utils -->
+    <bean id="logUtils" class="jp.co.sega.allnet.auth.log.ApiLogUtilsBean" scope="request">
+        <aop:scoped-proxy/>
+    </bean>
+    
+    <bean id="mailService" class="jp.co.sega.allnet.auth.mail.MailServiceBean"/>
+
+
+    <!-- validator -->
+    <bean id="validator"
+      class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+</beans>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2011 SEGA Corporation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>jp.co.sega.allnet.auth</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <groupId>jp.co.sega.allnet.auth.api</groupId>
+    <artifactId>title-api-web</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>ALL.Net Auth Module Title WEB API Project</name>
+    <!-- ================================================================== -->
+    <!-- Build Dependency Definitions -->
+    <!-- ================================================================== -->
+    <dependencies>
+        <!-- org.springframework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${project.version.springframework}</version>
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${project.version.springframework}</version>
+        </dependency>
+        <!-- cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${project.version.cglib}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- org.slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${project.version.slf4j}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${project.version.slf4j}</version>
+        </dependency>
+        <!-- commons-codec -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${project.version.commons.codec}</version>
+        </dependency>
+        <!-- net.sf.opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${project.version.com.opencsv}</version>
+        </dependency>
+        <!-- javax.servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${project.version.servlet.api}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- ============================================================== -->
+        <!-- Local Dependencies -->
+        <!-- ============================================================== -->
+        <!-- util -->
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth</groupId>
+            <artifactId>util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- ============================================================== -->
+        <!-- Test Dependencies -->
+        <!-- ============================================================== -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${project.version.springframework}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${project.version.org.postgresql}</version>
+        </dependency>
+        <dependency>
+            <groupId>jp.co.sega.allnet.auth</groupId>
+            <artifactId>test</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+	<!-- ================================================================== -->
+	<!-- Build Difinitions                                                  -->
+	<!-- ================================================================== -->
+	<build>
+		<finalName>title-api</finalName>
+	</build>
+</project>

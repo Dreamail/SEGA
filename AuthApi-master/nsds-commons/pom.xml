@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013 SEGA Corporation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>jp.co.sega.nsds.biz.common</groupId>
+    <artifactId>nsds-commons</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>Common Methods for the Net System Development Section</name>
+    <prerequisites>
+        <maven>3.0.0</maven>
+    </prerequisites>
+    <organization>
+        <name>SEGA Corporation</name>
+        <url>http://www.sega.co.jp</url>
+    </organization>
+    <scm>
+        <connection>scm:svn:http://157.109.244.90/repos27/src/Auth</connection>
+        <developerConnection>scm:svn:http://157.109.244.90/repos27/src/Auth</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <!-- ================================================================== -->
+    <!-- Properties                                                         -->
+    <!-- ================================================================== -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- ==================================== -->
+        <!-- Maven Plugin Configurations          -->
+        <!-- ==================================== -->
+        
+        <!-- maven-eclipse-plugin -->
+        <project.version.maven.eclipse.plugin>2.10</project.version.maven.eclipse.plugin>
+        <!-- maven-surefire-plugin -->
+        <project.version.maven.surefire.plugin>2.22.0</project.version.maven.surefire.plugin>
+        <!-- maven-compiler-plugin -->
+        <project.version.maven.compiler.plugin>3.8.0</project.version.maven.compiler.plugin>
+        <maven.compiler.encoding>${project.build.sourceEncoding}</maven.compiler.encoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation>
+        <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+        <maven.compiler.optimize>true</maven.compiler.optimize>
+        <maven.compiler.verbose>true</maven.compiler.verbose>
+        <!-- maven-jar-plugin -->
+        <project.version.maven.jar.plugin>3.1.0</project.version.maven.jar.plugin>
+        <!-- maven-antrun-plugin -->
+        <project.version.maven.antrun.plugin>1.8</project.version.maven.antrun.plugin>
+        <!-- project.version.maven.site.plugin -->
+        <project.version.maven.site.plugin>3.7.1</project.version.maven.site.plugin>
+        <!-- project.version.maven.project-info-reports.plugin -->
+        <project.version.maven.project-info-reports.plugin>3.0.0</project.version.maven.project-info-reports.plugin>
+        <!-- maven-javadoc-plugin -->
+        <project.version.maven.javadoc.plugin>3.0.1</project.version.maven.javadoc.plugin>
+        <!-- buildnumber-maven-plugin -->
+        <project.version.buildnumber.maven.plugin>1.2</project.version.buildnumber.maven.plugin>
+
+        <!-- ==================================== -->
+        <!-- Library Versions                     -->
+        <!-- ==================================== -->
+
+        <!-- ***** Common Layer Library Versions ***** -->
+        <!-- junit -->
+        <project.version.junit>4.12</project.version.junit>
+        <!-- org.easymock -->
+        <project.version.easymock>3.6</project.version.easymock>
+        <!-- org.slf4j -->
+        <project.version.slf4j>1.7.25</project.version.slf4j>
+        <!-- org.apache.commons -->
+        <project.version.commons.lang>3.8.1</project.version.commons.lang>
+        <project.version.commons.codec>1.11</project.version.commons.codec>
+        <project.version.commons.beanutils>1.9.3</project.version.commons.beanutils>
+
+    </properties>
+    <!-- ================================================================== -->
+    <!-- Optional Repositories                                              -->
+    <!-- ================================================================== -->
+    <repositories>
+        <repository>
+            <id>repo1.maven.org</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>repo2.maven.org</id>
+            <url>http://repo2.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <!-- ================================================================== -->
+    <!-- Optional Plugin Repositories                                       -->
+    <!-- ================================================================== -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven2-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven-repository.dev.java.net</id>
+            <url>http://download.java.net/maven/1</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <!-- ================================================================== -->
+    <!-- Build Difinitions                                                  -->
+    <!-- ================================================================== -->
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <outputDirectory>target/classes</outputDirectory>
+        <testOutputDirectory>target/test-classes</testOutputDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xsd</include>
+                    <include>**/*.dtd</include>
+                    <include>**/*.csv</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xsd</include>
+                    <include>**/*.dtd</include>
+                    <include>**/*.csv</include>
+                </includes>
+            </testResource>
+        </testResources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>${project.version.maven.eclipse.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${project.version.maven.surefire.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${project.version.maven.compiler.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${project.version.maven.site.plugin}</version>
+                    <configuration>
+                        <reportPlugins>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-project-info-reports-plugin</artifactId>
+                                <version>${project.version.maven.project-info-reports.plugin}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-javadoc-plugin</artifactId>
+                                <version>${project.version.maven.javadoc.plugin}</version>
+                                <configuration>
+                                    <docencoding>UTF-8</docencoding>
+                                    <charset>UTF-8</charset>
+                                    <encoding>UTF-8</encoding>
+                                    <bottom>
+                                    <![CDATA[
+                                        Copyright &copy; 2010-2013 SEGA Corporation AllRights Reserved.
+                                    ]]>
+                                    </bottom>
+                                </configuration>
+                            </plugin>
+                        </reportPlugins>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>buildnumber-maven-plugin</artifactId>
+                    <version>${project.version.buildnumber.maven.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${project.version.maven.jar.plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <projectNameTemplate>${project.artifactId}</projectNameTemplate>
+                    <manifest>${basedir}/src/main/resources/META-INF/MANIFEST.MF</manifest>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <excludes>
+                        <excludes>**/Generic*</excludes>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${maven.compiler.encoding}</encoding>
+                    <target>${maven.compiler.target}</target>
+                    <source>${maven.compiler.source}</source>
+                    <showDeprecation>${maven.compiler.showDeprecation}</showDeprecation>
+                    <showWarnings>${maven.compiler.showWarnings}</showWarnings>
+                    <optimize>${maven.compiler.optimize}</optimize>
+                    <verbose>${maven.compiler.verbose}</verbose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-project-info-reports-plugin</artifactId>
+                            <version>${project.version.maven.project-info-reports.plugin}</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>${project.version.maven.javadoc.plugin}</version>
+                            <configuration>
+                                <docencoding>UTF-8</docencoding>
+                                <charset>UTF-8</charset>
+                                <encoding>UTF-8</encoding>
+                                <bottom>
+                                <![CDATA[
+                                    Copyright &copy; 2010-2011 SEGA Corporation AllRights Reserved.
+                                ]]>
+                                </bottom>
+                            </configuration>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                    <username>server</username>
+                    <password>server</password>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Build>${buildNumber}</Implementation-Build>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <!-- ================================================================== -->
+    <!-- Build Dependency Definitions                                       -->
+    <!-- ================================================================== -->
+    <dependencies>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${project.version.junit}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- org.easymock -->
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>${project.version.easymock}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- org.slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${project.version.slf4j}</version>
+        </dependency>
+    </dependencies>
+</project>

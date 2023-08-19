@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="api" default="deploy" basedir=".">
+	<!-- ================================================================== -->
+	<!-- Property Settings                                                  -->
+	<!-- ================================================================== -->
+	<property file="${basedir}/deploy.properties" />
+	<property name="was.home" value="${WAS_HOME}" />
+	<property name="profile.name" value="${PROFILE_NAME}" />
+	<property name="server.name" value="${SERVER_NAME}" />
+	<property name="deploy.dir" value="${was.home}/profiles/${profile.name}/monitoredDeployableApps/servers/${server.name}" />
+	<property name="artifact.name" value="${ARTIFACT_NAME}" />
+	<property name="artifact.file.name" value="${artifact.name}.ear" />
+	<!-- ================================================================== -->
+	<!-- Target Settings                                                    -->
+	<!-- ================================================================== -->
+	<target name="deploy" depends="undeploy">
+		<copy file="${basedir}/target/${artifact.file.name}" tofile="${deploy.dir}/${artifact.name}-temp" />
+		<move file="${deploy.dir}/${artifact.name}-temp" tofile="${deploy.dir}/${artifact.file.name}" />
+	</target>
+	<target name="undeploy">
+		<delete file="${deploy.dir}/${artifact.file.name}" />
+	</target>
+</project>

@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+    <display-name>ALL.Net Auth Title API</display-name>
+    <description>
+		<![CDATA[ALL.Net Auth Title API]]>
+	</description>
+    <!-- ================================================================== -->
+    <!-- context-param                                                      -->
+    <!-- ================================================================== -->
+
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+
+    <!-- ================================================================== -->
+    <!-- listener                                                           -->
+    <!-- ================================================================== -->
+
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    <!-- Enable Web Scope -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <!-- ================================================================== -->
+    <!-- servlet                                                            -->
+    <!-- ================================================================== -->
+
+    <servlet>
+        <servlet-name>PlaceRegionTable</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.PlaceRegionTable</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PlaceRegionTableAll</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.PlaceRegionTableAll</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>MachineTable</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.MachineTable</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>GetPlaceList</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.GetPlaceList</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>GetRegionList</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.GetRegionList</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>GetMachineList</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.api.servlet.GetMachineList</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- ================================================================== -->
+    <!-- servlet-mapping                                                    -->
+    <!-- ================================================================== -->
+
+    <servlet-mapping>
+        <servlet-name>PlaceRegionTable</servlet-name>
+        <url-pattern>/PlaceRegionTable</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PlaceRegionTableAll</servlet-name>
+        <url-pattern>/PlaceRegionTableAll</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MachineTable</servlet-name>
+        <url-pattern>/MachineTable</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GetPlaceList</servlet-name>
+        <url-pattern>/GetPlaceList</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GetRegionList</servlet-name>
+        <url-pattern>/GetRegionList</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>GetMachineList</servlet-name>
+        <url-pattern>/GetMachineList</url-pattern>
+    </servlet-mapping>
+
+    <!-- ================================================================== -->
+    <!-- resource-ref                                                       -->
+    <!-- ================================================================== -->
+    <resource-ref>
+        <res-ref-name>jdbc/pgsql</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+</web-app>

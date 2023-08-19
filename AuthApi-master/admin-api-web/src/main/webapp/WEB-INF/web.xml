@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+    <display-name>ALL.Net Auth Admin API</display-name>
+    <description>
+        <![CDATA[ALL.Net Auth Admin API]]>
+    </description>
+    <!-- ================================================================== -->
+    <!-- context-param                                                      -->
+    <!-- ================================================================== -->
+
+    <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+    </context-param>
+    
+    <!-- ================================================================== -->
+    <!-- filter -->
+    <!-- ================================================================== -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <!-- ================================================================== -->
+    <!-- filter-mapping -->
+    <!-- ================================================================== -->
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ================================================================== -->
+    <!-- listener -->
+    <!-- ================================================================== -->
+    
+    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Enable Web Scope -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <!-- ================================================================== -->
+    <!-- servlet -->
+    <!-- ================================================================== -->
+    <servlet>
+        <servlet-name>AdminRegister</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.admin.api.servlet.AdminRegister</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminView</servlet-name>
+        <servlet-class>jp.co.sega.allnet.auth.admin.api.servlet.AdminView</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- ================================================================== -->
+    <!-- servlet-mapping -->
+    <!-- ================================================================== -->
+    <servlet-mapping>
+        <servlet-name>AdminRegister</servlet-name>
+        <url-pattern>/AdminRegister</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>AdminView</servlet-name>
+        <url-pattern>/AdminView</url-pattern>
+    </servlet-mapping>
+    
+
+    <!-- ================================================================== -->
+    <!-- resource-ref                                                       -->
+    <!-- ================================================================== -->
+    <resource-ref>
+        <res-ref-name>jdbc/pgsql</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+</web-app>
